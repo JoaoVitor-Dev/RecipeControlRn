@@ -51,11 +51,12 @@ export default function targetRegister() {
             await inserirMeta(db, {
                 mes: mesNumero,
                 ano: anoAtual,
-                valor_meta: parseFloat(meta),
-                quantidade: 0, 
+                nome: nome,
+                quantidade: meta, 
             });
 
-                  Alert.alert('Meta salva com sucesso!');
+        Alert.alert('Meta salva com sucesso!');
+        
         navigation.reset({
             index: 0,
             routes: [{ name: 'Home' }],

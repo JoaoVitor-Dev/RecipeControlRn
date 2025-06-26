@@ -19,7 +19,7 @@ export default function splash(){
             const ano = now.getFullYear();
 
             const [result] = await db.executeSql(
-                'SELECT * FROM metas WHERE mes = ? AND ano = ? LIMIT 1', [mes.toString(), ano]
+                'SELECT * FROM meta WHERE mes = ? AND ano = ? LIMIT 1', [mes.toString(), ano]
             );
 
             const isTargetExists = result.rows.length > 0;
@@ -35,7 +35,7 @@ export default function splash(){
                 console.log(err)
             }
         }
-        checkTarget()
+        checkTarget();
     }, [])
 
     return (

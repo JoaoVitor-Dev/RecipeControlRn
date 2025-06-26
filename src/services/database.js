@@ -8,19 +8,19 @@ export const getDBConnection = async () => {
 
 export const createTables = async (db) => {
   await db.executeSql(`
-    CREATE TABLE IF NOT EXISTS metas (
+    CREATE TABLE IF NOT EXISTS meta (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       mes TEXT NOT NULL,
+      nome TEXT NOT NULL,
       ano INTEGER NOT NULL,
-      valor_meta REAL NOT NULL,
       quantidade INTEGER NOT NULL
     );
   `);
 };
 
-export async function inserirMeta(db, { mes, ano, valor_meta, quantidade }) {
+export async function inserirMeta(db, { mes, nome, ano, quantidade }) {
     await db.executeSql(
-    'INSERT INTO metas (mes, ano, valor_meta, quantidade) VALUES (?, ?, ?, ?)',
-    [mes, ano, valor_meta, quantidade]
+    'INSERT INTO meta (mes, nome, ano, quantidade) VALUES (?, ?, ?, ?)',
+    [mes, nome, ano, quantidade]
   );
 }
