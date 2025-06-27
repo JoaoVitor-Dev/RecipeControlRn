@@ -26,11 +26,8 @@ export async function getTargetInOpen(db, mes, ano) {
       [mes.toString(), ano]
     );
 
-    if (result.rows.length > 0) {
-      return true;
-    } else {
-      return false; 
-    }
+    return result.rows.length > 0;
+  
   } catch (error) {
     console.error('Erro ao buscar meta:', error);
     throw error; 
