@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
-import { View, Image, StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
+import { View, Image, StyleSheet, SafeAreaView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { getDBConnection } from '../services/database';
 import { useNavigation } from '@react-navigation/native';
 import { Text } from 'react-native-gesture-handler';
 import colors from '../styles/colors';
+import NavigationBottom from '../components/navigationBottom'
+import { BottomTabBar } from '@react-navigation/bottom-tabs';
+import OpticalSet, { opticalSet } from '../components/opticalSet'
 
-export default function home() {    
+export default function home({ }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.navbar} />
@@ -15,6 +18,14 @@ export default function home() {
                 <Text style={styles.cardItem}>Meta: 120</Text>
                 <Image source={require('../../assets/target.png')} style={styles.image} />
             </View>
+
+            <Image source={require('../../assets/optical.png')} style={styles.opticalImage} />
+
+            {/* <OpticalSet style={{ flex: 1 }} /> */}
+
+            <TouchableOpacity style={styles.button} >
+                <Text style={styles.buttonText}>Nova Venda</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
@@ -23,23 +34,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        alignContent: 'center'
     },
-    // navbar: {
-    //     height: 56,
-    //     backgroundColor: '#fff',
-    //     justifyContent: 'center',
-    //     ...Platform.select({
-    //         ios: {
-    //             shadowColor: '#000',
-    //             shadowOffset: { width: 0, height: 2 },
-    //             shadowOpacity: 0.1,
-    //             shadowRadius: 4,
-    //         },
-    //         android: {
-    //             elevation: 4,
-    //         },
-    //     }),
-    // },
     card: {
         backgroundColor: colors.purple_primary,
         margin: 16,
@@ -62,11 +58,30 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         color: '#fff',
     },
-        image: {
+    image: {
         width: 85,
         height: 85,
         position: 'absolute',
         top: 20,
         right: 20,
+    },
+    button: {
+        margin: 16,
+        backgroundColor: colors.purple_primary,
+        paddingVertical: 12,
+        borderRadius: 12,
+        alignItems: 'center',
+        top: '20%'
+    },
+    opticalImage: {
+        width: 300,
+        height: 300,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
 });

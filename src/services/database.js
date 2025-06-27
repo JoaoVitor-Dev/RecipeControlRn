@@ -18,22 +18,18 @@ export const createTables = async (db) => {
   `);
 };
 
-
 export async function getTargetInOpen(db, mes, ano) {
   try {
     const [result] = await db.executeSql(
       'SELECT * FROM meta WHERE mes = ? AND ano = ? LIMIT 1',
       [mes.toString(), ano]
     );
-
     return result.rows.length > 0;
-  
   } catch (error) {
     console.error('Erro ao buscar meta:', error);
     throw error; 
   }
 }
-
 
 export async function inserirMeta(db, { mes, nome, ano, quantidade }) {
     await db.executeSql(

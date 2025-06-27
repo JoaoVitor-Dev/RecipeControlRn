@@ -7,6 +7,7 @@ import splash from './screens/splash';
 import home from './screens/home'
 import targetRegister from './screens/targetRegister';
 import colors from './styles/colors';
+import { NavigationBottom } from './components/navigationBottom';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,7 +20,7 @@ function App() {
      <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={splash} />
-        <Stack.Screen name="Home" component={home} />
+        <Stack.Screen name="Home" component={NavigationBottom} />
         <Stack.Screen name="CadastroMeta" component={targetRegister} />
       </Stack.Navigator>
     </NavigationContainer></>
