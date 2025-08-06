@@ -1,6 +1,7 @@
 const colors = {
     purple_primary: '#502F7E',
-    black_primary: '#000000ff'
+    black_primary: '#000000ff',
+    white_primary: '#faf8f8ff'
 }
 
 export default colors;

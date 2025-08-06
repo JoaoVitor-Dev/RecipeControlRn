@@ -11,6 +11,7 @@ import {
   RefreshControl 
 } from 'react-native';
  import { getDBConnection, obterHistoricoMetas } from '../services/database';
+import colors from '../styles/colors';
 
 const History = () => {
   const [metas, setMetas] = useState([]);
@@ -156,7 +157,7 @@ const History = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9FAFB',
+    backgroundColor: colors.white_primary,
   },
   header: {
     paddingHorizontal: 20,

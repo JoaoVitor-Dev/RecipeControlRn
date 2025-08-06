@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from 'react-native-vector-icons/Ionicons';
 import home from "../screens/home";
-import targetRegister from "../screens/targetRegister";
 import History from "../screens/history";
 import colors from "../styles/colors";
 

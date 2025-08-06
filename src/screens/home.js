@@ -77,16 +77,16 @@ export default function home({ }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: colors.white_primary,
         alignContent: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-between'
     },
     card: {
         backgroundColor: colors.black_primary,
         marginLeft: 16,
         marginBottom:16,
         marginRight: 16,
-        marginTop: 10,
+        marginTop: 40,
         borderRadius: 12,
         padding: 16,
         elevation: 2,
