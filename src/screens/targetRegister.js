@@ -12,11 +12,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import {
-    getDBConnection,
-    createTables,
-    inserirMeta,
-} from '../services/database';
+import { getDBConnection, createTables, inserirMeta } from '../services/database';
 import color from '../styles/colors'
 
 export default function targetRegister() {
@@ -72,10 +68,10 @@ export default function targetRegister() {
             style={styles.container}
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
 
-            <LinearGradient colors={[color.purple_primary, color.purple_primary]} style={styles.header} />
+            <LinearGradient colors={[color.black_primary, color.black_primary]} style={styles.header} />
 
             <Text style={styles.monthText}>{mesAtual}</Text>
-            <Text style={styles.infoText}>Informações da Meta</Text>
+            <Text style={styles.infoText}></Text>
             <Image source={require('../../assets/target.png')} style={styles.image} />
 
             <View style={styles.card}>
@@ -166,7 +162,7 @@ const styles = StyleSheet.create({
         color: '#333',
     },
     button: {
-        backgroundColor: color.purple_primary,
+        backgroundColor: color.black_primary,
         paddingVertical: 12,
         borderRadius: 12,
         alignItems: 'center',

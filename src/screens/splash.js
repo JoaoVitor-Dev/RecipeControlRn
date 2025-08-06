@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Image, StyleSheet, ActivityIndicator, Text } from 'react-native';
 import { getDBConnection, createTables, getTargetInOpen } from '../services/database';
 import { useNavigation } from '@react-navigation/native';
+import colors from '../styles/colors';
 
 export default function splash(){
 
@@ -45,7 +46,7 @@ export default function splash(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#502F7E',
+    backgroundColor: colors.black_primary,
     justifyContent: 'center',
     alignItems: 'center',
   },

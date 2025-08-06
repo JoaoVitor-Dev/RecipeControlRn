@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-    <StatusBar backgroundColor={colors.purple_primary}/>
+    <StatusBar backgroundColor={colors.black_primary}/>
      <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={splash} />
