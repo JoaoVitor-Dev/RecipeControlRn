@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from 'react-native-vector-icons/Ionicons';
 import home from "../screens/home";
 import targetRegister from "../screens/targetRegister";
+import History from "../screens/history";
 import colors from "../styles/colors";
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -39,8 +40,8 @@ export function NavigationBottom(){
                 }}
             /> 
             <Screen 
-                component={targetRegister} 
-                name="Relatório"
+                component={History} 
+                name="Histórico"
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <Icon 

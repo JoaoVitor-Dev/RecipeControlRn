@@ -41,7 +41,6 @@ export async function getTargetInOpen(db, mes, ano) {
   }
 }
 
-
 export async function obterMetaComVendas(db, mes, ano) {
   try {
     const [result] = await db.executeSql(
@@ -77,4 +76,49 @@ export async function adicionarVenda(db, idMeta) {
    "INSERT INTO venda (idMeta, dataVenda) VALUES (?, datetime('now', 'localtime'));",
    [idMeta]
  );
+}
+
+export async function obterHistoricoMetas(db) {
+  try {
+    const [result] = await db.executeSql(`
+      SELECT 
+        m.id,
+        m.mes,
+        m.ano,
+        m.nome,
+        m.quantidade,
+        (SELECT COUNT(v.id) FROM venda v WHERE v.idMeta = m.id) as totalVendas,
+        CASE 
+          WHEN (SELECT COUNT(v.id) FROM venda v WHERE v.idMeta = m.id) >= m.quantidade 
+          THEN 'ALCANÇADA' 
+          ELSE 'NÃO ALCANÇADA' 
+        END as status
+      FROM meta m
+      ORDER BY m.ano DESC, 
+               CASE m.mes 
+                 WHEN 'Janeiro' THEN 1
+                 WHEN 'Fevereiro' THEN 2
+                 WHEN 'Março' THEN 3
+                 WHEN 'Abril' THEN 4
+                 WHEN 'Maio' THEN 5
+                 WHEN 'Junho' THEN 6
+                 WHEN 'Julho' THEN 7
+                 WHEN 'Agosto' THEN 8
+                 WHEN 'Setembro' THEN 9
+                 WHEN 'Outubro' THEN 10
+                 WHEN 'Novembro' THEN 11
+                 WHEN 'Dezembro' THEN 12
+               END DESC
+    `);
+
+    const metas = [];
+    for (let i = 0; i < result.rows.length; i++) {
+      metas.push(result.rows.item(i));
+    }
+
+    return metas;
+  } catch (error) {
+    console.error('Erro ao buscar histórico de metas:', error);
+    throw error;
+  }
 }
